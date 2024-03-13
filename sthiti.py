@@ -34,11 +34,30 @@ class Sanjna:
 
 
 @dataclass
+class Sopaana:
+    """सोपानः"""
+
+    idx: list[int]
+
+    @property
+    def kramaanka(self) -> str:
+        """क्रमाङ्कः"""
+        return ".".join(map(str, self.idx))
+
+    @property
+    def shaakhaa(self) -> int:
+        """शाखा"""
+        return len(self.idx) - 1
+
+
+@dataclass
 class Sthiti:
     """वर्तमानस्थितिः"""
 
+    sopaana: Sopaana
     sthiti: str
     sanjna: list[Sanjna]
+    purva_sopaana: Sopaana
 
     @property
     def vinyaasa(self):
