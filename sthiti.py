@@ -1,20 +1,9 @@
 """कार्यस्य वर्तमानस्थितिः"""
 
 from dataclasses import dataclass
-from enum import Enum
+
 from akshara import varnakaarya as vk
-
-
-class SanjnaPrakaara(Enum):
-    """संज्ञाप्रकाराः"""
-
-    DHAATU = "धातु"
-    GUNA = "गुण"
-    VRIDDHI = "वृद्धि"
-    PRATYAYA = "प्रत्यय"
-    KRIT = "कृत्"
-    IT = "इत्"
-
+from globs import SanjnaPrakaara
 
 @dataclass
 class Sanjna:
@@ -57,6 +46,7 @@ class Sthiti:
     sopaana: Sopaana
     sthiti: str
     sanjna: list[Sanjna]
+    sutra: str
     purva_sopaana: Sopaana
 
     @property
