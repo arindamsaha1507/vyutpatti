@@ -16,5 +16,5 @@ with open("dhaatu_upadesha", "w", encoding="utf-8") as f:
         kramaanka = upadesha.split(" ")[-2]
         artha = " ".join(upadesha.split(" ")[2:-2])
         split = list(d for d in dhaatu)
-        f.write(f"{kramaanka} {dhaatu} {artha} {split}\n")
+        f.write(f"{kramaanka} {dhaatu} {artha}\n")
 print(len(data))

@@ -1,10 +1,9 @@
-"""Module for the Dhaatu class."""
+"""धातूनां वर्णनात्मकः सङ्घः"""
 
 from dataclasses import dataclass, field
 
 import akshara.varnakaarya as vk
 
-from sthiti import Sthiti
 from globs import Gana, SvaraBheda
 
 
@@ -19,14 +18,11 @@ class Dhaatu:
     dhaatu: str = field(init=False, repr=False)
     it_svara: SvaraBheda = field(init=False, default=SvaraBheda.UDATTA)
     svara: SvaraBheda = field(init=False, default=SvaraBheda.UDATTA)
-    prakriya: list[Sthiti] = field(default_factory=list, init=False, repr=False)
 
     def __post_init__(self):
 
         if len(self.kramaanka.split(".")) != 2:
             raise ValueError("kramaanka should be of the form 'x.y'")
-        
-        
 
         self.remove_swara_markings()
 
@@ -49,8 +45,9 @@ class Dhaatu:
                         self.it_svara = SvaraBheda.SVARITA
                     else:
                         self.svara = SvaraBheda.SVARITA
-        
+
         self.upadesha = "".join(upa)
+
 
 if __name__ == "__main__":
     dhaatu = Dhaatu(
